@@ -1,0 +1,556 @@
+/* ==========================================================
+   SCROLL SUAVE
+   Faz o scroll descer suavemente quando clicar nos links (#id)
+========================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==========================================================
+   RESET
+   Remove espaçamentos padrões e corrige cálculo de largura
+========================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   BASE DO SITE
+   Define fonte padrão, cores e espaçamento base do layout
+========================================================== */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background: #0b0f19;
+  color: #eaeaea;
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   LINKS
+   Remove sublinhado e herda cor do elemento pai
+========================================================== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================================================
+   CONTAINER
+   Centraliza e limita largura máxima do conteúdo
+========================================================== */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ==========================================================
+   HEADER (TOPO FIXO)
+   Barra fixa com efeito blur (vidro fosco)
+========================================================== */
+.header {
+  background: rgba(11, 15, 25, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px 0;
+
+  /* deixa o menu fixo no topo */
+  position: sticky;
+  top: 0;
+
+  /* efeito de desfoque no fundo */
+  backdrop-filter: blur(10px);
+
+  /* prioridade de camada */
+  z-index: 10;
+}
+
+/* ==========================================================
+   HEADER CONTENT
+   Alinha logo e menu lado a lado
+========================================================== */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==========================================================
+   LOGO
+   Estilo do nome + bolinha decorativa
+========================================================== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* bolinha roxa ao lado do nome */
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #7c3aed;
+  border-radius: 50%;
+}
+
+/* ==========================================================
+   NAV (MENU)
+   Links do menu principal
+========================================================== */
+.nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.nav a {
+  font-size: 14px;
+  font-weight: 500;
+
+  /* transparência para dar estilo minimalista */
+  opacity: 0.85;
+
+  /* animação suave ao passar o mouse */
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  opacity: 1;
+}
+
+/* ==========================================================
+   BOTÕES (COMPONENTE PADRÃO)
+   Classe base para todos os botões
+========================================================== */
+.btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+
+  /* transição para hover */
+  transition: 0.3s;
+
+  /* evita quebrar layout */
+  display: inline-block;
+}
+
+/* botão principal (roxo) */
+.primary {
+  background: #7c3aed;
+  color: white;
+}
+
+.primary:hover {
+  background: #6d28d9;
+  transform: translateY(-2px);
+}
+
+/* botão outline (borda) */
+.outline {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.outline:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================
+   HERO (SEÇÃO PRINCIPAL)
+   Parte inicial do site (apresentação)
+========================================================== */
+.hero {
+  padding: 80px 0;
+}
+
+/* grid que divide texto e card */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* título principal */
+.hero-text h2 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* texto abaixo do título */
+.hero-text p {
+  margin-top: 18px;
+  font-size: 16px;
+  opacity: 0.85;
+  max-width: 600px;
+}
+
+/* botões do hero */
+.hero-buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 12px;
+}
+
+/* informações extras (localização + tecnologias) */
+.hero-info {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ==========================================================
+   ÍCONES DE TECNOLOGIAS
+   Mostra os ícones das linguagens/frameworks
+========================================================== */
+.tech-icons {
+  display: flex;
+  gap: 14px;
+  font-size: 22px;
+  justify-content: flex-start;
+  opacity: 0.9;
+}
+
+.tech-icons i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tech-icons i:hover {
+  transform: translateY(-4px);
+  opacity: 1;
+}
+
+/* ==========================================================
+   HERO CARD (CARD DO PERFIL)
+   Caixa com avatar, nome e links sociais
+========================================================== */
+.hero-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 28px;
+  border-radius: 18px;
+  text-align: center;
+
+  /* sombra para dar profundidade */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35);
+
+  transition: 0.3s;
+}
+
+.hero-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* avatar do perfil */
+.profile-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+
+  /* gradiente moderno */
+  background: linear-gradient(135deg, #7c3aed, #06b6d4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+.profile-photo span {
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+}
+
+.hero-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.hero-card p {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-top: 6px;
+}
+
+/* links sociais */
+.social-links {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================
+   SECTIONS (PADRÃO)
+   Estilo base para todas as seções do site
+========================================================== */
+.section {
+  padding: 70px 0;
+}
+
+/* fundo alternado para criar contraste entre seções */
+.bg {
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* títulos das seções */
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+/* texto das seções */
+.section-text {
+  opacity: 0.85;
+  max-width: 800px;
+}
+
+/* ==========================================================
+   GRID (LAYOUT)
+   Estrutura em colunas para cards e projetos
+========================================================== */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 25px;
+}
+
+/* ==========================================================
+   CARD (COMPONENTE PADRÃO)
+   Base usada em Skills e outras áreas
+========================================================== */
+.card {
+  padding: 20px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ==========================================================
+   TIMELINE (EXPERIÊNCIA)
+   Estilo para lista vertical de experiências
+========================================================== */
+.timeline {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.timeline-item {
+  padding: 18px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+
+  transition: 0.3s;
+}
+
+.timeline-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.timeline-item h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.timeline-item span {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.timeline-item p {
+  margin-top: 8px;
+  opacity: 0.85;
+  font-size: 14px;
+}
+
+/* ==========================================================
+   PROJECTS (CARDS DE PROJETOS)
+========================================================== */
+.project-card {
+  padding: 22px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+
+/* link dentro do card */
+.link {
+  font-weight: 600;
+  color: #a78bfa;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================
+   CONTACT (SEÇÃO DE CONTATO)
+========================================================== */
+.contact-box {
+  padding: 25px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-box p {
+  opacity: 0.85;
+  margin-bottom: 18px;
+}
+
+.contact-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================
+   FOOTER (RODAPÉ)
+========================================================== */
+.footer {
+  text-align: center;
+  padding: 25px 0;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* ==========================================================
+   ANIMAÇÕES
+   Fade suave para dar sensação moderna ao site
+========================================================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* aplica animação nos elementos principais */
+.hero-text,
+.hero-card,
+.section-title,
+.section-text,
+.card,
+.project-card,
+.timeline-item,
+.contact-box {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* ==========================================================
+   RESPONSIVO (MOBILE)
+   Ajustes para telas menores
+========================================================== */
+@media (max-width: 900px) {
+
+  /* hero vira coluna */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  /* centraliza botões */
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  /* grids viram 1 coluna */
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* esconde menu no mobile (depois colocamos hamburguer) */
+  .nav {
+    display: none;
+  }
+
+  /* centraliza ícones */
+  .tech-icons {
+    justify-content: center;
+  }
+}

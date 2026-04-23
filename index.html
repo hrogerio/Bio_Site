@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,30 +40,28 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css" />
-
-
-  <!--JS-->
-  <script src="/scripts/script.js"></script>
 </head>
 
 <body>
-  <!--header-->  
-  <header>
-    <nav class="navbar">
-      <div class="container">
-        <a href="#" class="logo">Hugo Rogério</a>
-        <ul class="nav-links">
-          <li><a href="#home">Início</a></li>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#projects">Projetos</a></li>
-          <li><a href="#skills">Habilidades</a></li>
-          <li><a href="#contact">Contato</a></li>
-        </ul>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo">
+        <span class="dot"></span>
+        <h1>Hugo Rogério</h1>
       </div>
-    </nav>
+
+      <nav class="nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#skills">Skills</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato" class="btn">Contato</a>
+      </nav>
+    </div>
   </header>
 
-   <!-- HERO -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container hero-grid">
 
@@ -102,25 +101,94 @@
         <h3>Hugo Rogério</h3>
         <p>Front-End Developer</p>
 
-        <div class="social-tech-icons">
-          <i class="fa-brands fa-linkedin" title="LinkedIn"></i>
-          <i class="fa-brands fa-github" title="GitHub"></i>
+        <div class="social-links">
+          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+          <a href="https://github.com" target="_blank">GitHub</a>
         </div>
       </div>
 
     </div>
   </section>
 
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <h2 class="section-title">Sobre mim</h2>
+      <p class="section-text">
+        Sou desenvolvedor web com experiência em criação de interfaces e sistemas dinâmicos,
+        estrutura MVC em PHP e integração com banco de dados MySQL. Também atuo como designer gráfico,
+        unindo estética e performance para entregar projetos modernos.
+      </p>
+    </div>
+  </section>
 
-  <main>
-    <!-- Seções do portfólio (home, about, projects, skills, contact) -->
-  </main>
+  <!-- SKILLS -->
+  <section class="section bg" id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
 
-  <footer>
-    <p>&copy; 2024 Hugo Rogério. Todos os direitos reservados.</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Front-End</h3>
+          <p>HTML5, CSS3, JavaScript, responsividade e UI moderna.</p>
+        </div>
+
+        <div class="card">
+          <h3>Back-End</h3>
+          <p>PHP com PDO, arquitetura MVC, rotas e integração com banco de dados.</p>
+        </div>
+
+        <div class="card">
+          <h3>Estudos atuais</h3>
+          <p>Python, automação e frameworks modernos de Front-End.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section class="section bg" id="projetos">
+    <div class="container">
+      <h2 class="section-title">Projetos Recentes</h2>
+
+      <div class="grid-2">
+        <article class="project-card">
+          <h3>Sistema Gestor MVC</h3>
+          <p>Painel administrativo com filtros e paginação usando PHP + MySQL em estrutura MVC.</p>
+          <a href="#" class="link">Ver detalhes →</a>
+        </article>
+
+        <article class="project-card">
+          <h3>Bio Site / Portfólio</h3>
+          <p>Site moderno e responsivo para apresentar projetos, habilidades e contatos.</p>
+          <a href="#" class="link">Ver detalhes →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="section" id="contato">
+    <div class="container">
+      <h2 class="section-title">Contato</h2>
+
+      <div class="contact-box">
+        <p>Quer conversar sobre um projeto ou oportunidade? Me chama:</p>
+
+        <div class="contact-links">
+          <a href="mailto:seuemail@gmail.com" class="btn primary">Enviar Email</a>
+          <a href="#" target="_blank" class="btn outline">LinkedIn</a>
+          <a href="#" target="_blank" class="btn outline">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 - Hugo Rogério. Desenvolvido com HTML + CSS.</p>
   </footer>
 
-    
-    
 </body>
+
 </html>
